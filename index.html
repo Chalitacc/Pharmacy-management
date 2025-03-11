@@ -1,13 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Pharmacy Management System</title>
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/variables.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/form.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <header>
+      <h1>Pharmacy Inventory</h1>
+    </header>
+
+    <main>
+      <div class="collection">
+        <div class="tools-container">
+          <!-- edit and delete buttons here -->
+        </div>
+        <div class="medicine">
+          <ul class="medicine-list">
+            Currently there are no medicine in the list
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- FORM MODAL -->
+    <div class="form-modal">
+      <h2>Add Inventory</h2>
+      <form class="form">
+        <div class="form-group">
+          <label for="product-name">Product Name:</label>
+          <input
+            type="text"
+            name="product-name"
+            id="product-name"
+            max="150"
+            placeholder="Enter Name of Product"
+            class="form__name-input"
+          />
+        </div>
+
+        <!-- ID!! -->
+        <div class="form-group">
+          <label for="product-id">Product ID:</label>
+          <input
+            type="number"
+            name="product-id"
+            id="product-id"
+            disabled
+            placeholder="Automatically Generetated"
+            class="form__product-id-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="manufacture">Manufacture:</label>
+          <input
+            type="text"
+            name="manufacture"
+            id="manufacture"
+            max="200"
+            placeholder="Enter Manufacture"
+            class="form__manufacture-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="expiration-date">Expriation Date:</label>
+          <input
+            type="date"
+            name="expiration-date"
+            id="expiration-date"
+            class="form__expiration-date-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select name="category" id="category" class="form__category-selector">
+            <option value="">Select category</option>
+            <option value="pain-reliver">Pain Reliver</option>
+            <option value="antibiotics">Antibiotics</option>
+            <option value="allergy-and-cold">Allergy & Cold</option>
+            <option value="digestive-and-health">Digestive & Health</option>
+            <option value="heart-blood-pressure">Heart & Blood Pressure</option>
+            <option value="diabetes">Diabetes Care</option>
+            <option value="mental-health">Mental Health</option>
+            <option value="vitamines-supplement">Vitamines & Supplement</option>
+            <option value="skin-wound-care">Skin & Wound Care</option>
+            <option value="vaccines-immunity">Vaccines & Immunity</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input
+            type="number"
+            name="quantity"
+            id="quantity"
+            class="form__quantity-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="dosage-form">Dosage Form:</label>
+          <select
+            name="dosage-form"
+            id="dosage-form"
+            class="form__dosage-form-selector"
+          >
+            <option value="">Select Dosage Form</option>
+            <option value="tablet">Tablet</option>
+            <option value="capsule">Capsule</option>
+            <option value="syrup">Syrup</option>
+            <option value="suspension">Suspension</option>
+            <option value="injection">Injection</option>
+            <option value="ointment">Ointment</option>
+            <option value="cream">Cream</option>
+            <option value="lotion">lotion</option>
+            <option value="gel">Gel</option>
+            <option value="drops">Drops</option>
+            <option value="inhaler">Inhaler</option>
+            <option value="patch">Patch</option>
+            <option value="powder">Powder</option>
+            <option value="spray">Spray</option>
+            <option value="suppository">Suppository</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price per unit:</label>
+          <input
+            type="number"
+            name="price"
+            id="price"
+            class="form__price-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="date-recieved">Date Recieved:</label>
+          <input
+            type="date"
+            name="date-recieved"
+            id="date-recieved"
+            class="form__date-recieved-input"
+          />
+        </div>
+        <!-- BUTTONS -->
+        <button class="submit-button">Submit</button>
+        <button class="cancel-button">Cancel</button>
+      </form>
+      <div>
+        <button class="add-button">+</button>
+      </div>
+    </div>
+
+    <script type="module" src=""></script>
   </body>
 </html>
