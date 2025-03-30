@@ -36,3 +36,14 @@ main {
   background-color: var(--hover-color);
   cursor: pointer;
 }
+
+/* LIST STYLE */
+
+.product-list-headings {
+  display: flex;
+  gap: var(--spacing-medium);
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  background: var(--green-background-color);
+}

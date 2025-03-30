@@ -16,16 +16,18 @@
     </header>
 
     <main>
-      <div class="collection">
-        <div class="tools-container">
-          <!-- edit and delete buttons here -->
-        </div>
-        <div class="medicine">
-          <ul class="medicine-list">
-            Currently there are no medicine in the list
-          </ul>
-        </div>
-      </div>
+      <span class="prodcut-list-container">
+        <ul class="product-list product-list-headings">
+          <li class="product-list__name">Product Name:</li>
+          <li class="product-list__manufacturer">Product Manufacturer:</li>
+          <li class="product-list__expiration-date">Expiration Date:</li>
+          <li class="product-list__price">Price:</li>
+          <li class="product-list__quantity">Quantity:</li>
+          <li class="product-list__category">Category:</li>
+          <li class="prodcut-list__date-recieved">Date Recieved:</li>
+        </ul>
+        <ul class="product-list__list product-list__list-container"></ul>
+      </span>
     </main>
 
     <!-- FORM MODAL -->
@@ -106,6 +108,8 @@
           />
         </div>
 
+        <!-- DOSAGE FORM - CHECK IF YOU WANT THIS OR NOT -->
+
         <div class="form-group">
           <label for="dosage-form">Dosage Form:</label>
           <select
@@ -152,7 +156,7 @@
           />
         </div>
         <!-- BUTTONS -->
-        <button class="submit-button">Submit</button>
+        <button type="submit" class="submit-button">Submit</button>
         <button class="cancel-button">Cancel</button>
       </form>
     </div>

@@ -6,7 +6,8 @@ class UserInterface {
   }
 
   static closeCancelModal(cancelCloseModalButton, formModal, form) {
-    cancelCloseModalButton.addEventListener("click", () => {
+    cancelCloseModalButton.addEventListener("click", (e) => {
+      e.preventDefault();
       formModal.classList.remove("display-form-modal");
       form.reset();
     });

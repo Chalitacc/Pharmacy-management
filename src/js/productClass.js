@@ -1,23 +1,30 @@
 import { v4 as uuidv4 } from "uuid";
-class Product {
-  constructor(
-    name,
-    manufacturer,
-    expirationDate,
-    category,
-    quantity,
-    dosageForm,
-    price,
-    dateRecieved
-  ) {
+import ProductCategory from "./productCategory";
+class BaseProduct {
+  constructor(name, manufacturer, expirationDate, quantity, price) {
     this.id = uuidv4();
     this.name = name;
     this.manufacturer = manufacturer;
     this.expirationDate = expirationDate;
-    this.category = category;
     this.quantity = quantity;
-    this.dosageForm = dosageForm;
     this.price = price;
+  }
+}
+
+class Product extends BaseProduct {
+  constructor(
+    name,
+    manufacturer,
+    expirationDate,
+    quantity,
+    price,
+    category,
+    dosageForm,
+    dateRecieved
+  ) {
+    super(name, manufacturer, expirationDate, quantity, price);
+    this.category = category;
+    this.dosageForm = dosageForm;
     this.dateRecieved = dateRecieved;
   }
 }
