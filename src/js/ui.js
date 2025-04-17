@@ -31,7 +31,7 @@ class UserInterface {
       productsName.textContent = product.name;
       productsManufacture.textContent = product.manufacturer;
       productsExpirationDate.textContent = product.expirationDate;
-      productsCategory.textContent = product.catetogyr;
+      productsCategory.textContent = product.category;
       productsQuantity.textContent = product.quantity;
       productsDosageForm.textContent = product.dosageForm;
       productsPrice.textContent = product.price;
@@ -55,7 +55,9 @@ class UserInterface {
 
       // ADDING CLASS NAMES
       productsContainer.classList.add("products-container");
-      toolsContainer.classList.add("tools-conainer");
+      toolsContainer.classList.add("tools-container");
+      editButton.classList.add("edit-button");
+      deleteButton.classList.add("delete-button");
     });
   }
 
