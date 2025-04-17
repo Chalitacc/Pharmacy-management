@@ -3,16 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pharmacy Management System</title>
     <link rel="stylesheet" href="./src/css/reset.css" />
     <link rel="stylesheet" href="./src/css/variables.css" />
+    <link rel="stylesheet" href="./src/css/render.css" />
     <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./src/css/form.css" />
   </head>
   <body>
     <header>
       <h1>Pharmacy Inventory</h1>
+      <img
+        class="header-icon"
+        src="./public/medicine-pharmacy-svgrepo-com.svg"
+        alt="svg header icon"
+      />
     </header>
 
     <main>
@@ -21,9 +31,10 @@
           <li class="product-list__name">Product Name:</li>
           <li class="product-list__manufacturer">Manufacturer:</li>
           <li class="product-list__expiration-date">Expiration Date:</li>
-          <li class="product-list__price">Price:</li>
-          <li class="product-list__quantity">Quantity:</li>
           <li class="product-list__category">Category:</li>
+          <li class="product-list__quantity">Quantity:</li>
+          <li class="product-list__dosage-form">Dosage Form:</li>
+          <li class="product-list__price">Price per unit:</li>
           <li class="prodcut-list__date-recieved">Date Recieved:</li>
         </ul>
         <ul class="product-list__list product-list__list-container"></ul>
