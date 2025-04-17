@@ -21,7 +21,6 @@ const submitButton = document.querySelector(".submit-button");
 document.addEventListener("DOMContentLoaded", () => {
   UserInterface.openAddModal(openAddModalButton, formModal);
   UserInterface.closeCancelModal(cancelCloseModalButton, formModal, form);
-  UserInterface.viewProductList();
 });
 
 form.addEventListener("submit", (e) => {
@@ -39,6 +38,5 @@ form.addEventListener("submit", (e) => {
   console.log("Product added");
   console.log(ProductManager.getProduct());
 
-  UserInterface.viewProductList();
   form.reset();
 });

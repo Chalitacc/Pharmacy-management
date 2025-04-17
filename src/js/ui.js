@@ -68,7 +68,6 @@ class UserInterface {
     });
   }
 
-  // CLOSE/CANCEL BUTTON MODAL
   static closeCancelModal(cancelCloseModalButton, formModal, form) {
     cancelCloseModalButton.addEventListener("click", (e) => {
       e.preventDefault();

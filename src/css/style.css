@@ -1,15 +1,9 @@
-@font-face {
-  font-family: Lato;
-  src: url(/src/assets/fonts/Lato-Light.ttf);
-}
-
 body {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--light-background-color);
-  font-family: Lato;
 }
 
 header {
@@ -25,6 +19,7 @@ header {
 main {
   /* width: 100%;
   height: 100%;
+  width: 100%;
   height: auto;
   flex-grow: 1; */
   display: flex;
@@ -48,3 +43,12 @@ main {
 }
 
 /* LIST STYLE */
+
+.product-list-headings {
+  display: flex;
+  gap: var(--spacing-medium);
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  background: var(--green-background-color);
+}
