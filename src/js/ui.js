@@ -1,3 +1,6 @@
+import MainValidation from "./mainValidation";
+import ValidationFields from "./validationFields";
+
 class UserInterface {
   // RENDER
   static viewProductList() {
@@ -73,6 +76,7 @@ class UserInterface {
       e.preventDefault();
       formModal.classList.remove("display-form-modal");
       form.reset();
+      MainValidation.resetForm(ValidationFields.fieldsToValidate);
     });
   }
 }

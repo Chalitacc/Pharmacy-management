@@ -1,5 +1,6 @@
 import UserInterface from "./ui";
 import ProductManager from "./productManager";
+import ValidationFields from "./validationFields";
 // SELECTING ELEMENTS
 const formModal = document.querySelector(".form-modal");
 const openAddModalButton = document.querySelector(".add-button");
@@ -26,6 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  // VALIDATION
+
+  if (!ValidationFields.validation()) {
+    return;
+  }
+
   ProductManager.addProduct(
     name.value.trim(),
     manufacturer.value.trim(),

@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pharmacy Management System</title>
     <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/validation.css" />
     <link rel="stylesheet" href="./src/css/variables.css" />
     <link rel="stylesheet" href="./src/css/render.css" />
     <link rel="stylesheet" href="./src/css/style.css" />
@@ -55,6 +56,7 @@
             placeholder="Enter Name of Product"
             class="form__name-input"
           />
+          <p class="form__validation-message form__product-name-message"></p>
         </div>
 
         <!-- ID!! -->
@@ -68,6 +70,7 @@
             placeholder="Automatically Generetated"
             class="form__product-id-input"
           />
+          <p class="form__validation-message form__product-id-message"></p>
         </div>
 
         <div class="form-group">
@@ -80,6 +83,7 @@
             placeholder="Enter Manufacture"
             class="form__manufacture-input"
           />
+          <p class="form__validation-message form__manufacture-message"></p>
         </div>
 
         <div class="form-group">
@@ -90,6 +94,7 @@
             id="expiration-date"
             class="form__expiration-date-input"
           />
+          <p class="form__validation-message form__expiration-date-message"></p>
         </div>
 
         <div class="form-group">
@@ -107,6 +112,7 @@
             <option value="skin-wound-care">Skin & Wound Care</option>
             <option value="vaccines-immunity">Vaccines & Immunity</option>
           </select>
+          <p class="form__validation-message form__category-message"></p>
         </div>
 
         <div class="form-group">
@@ -117,9 +123,8 @@
             id="quantity"
             class="form__quantity-input"
           />
+          <p class="form__validation-message form__quantity-message"></p>
         </div>
-
-        <!-- DOSAGE FORM - CHECK IF YOU WANT THIS OR NOT -->
 
         <div class="form-group">
           <label for="dosage-form">Dosage Form:</label>
@@ -145,6 +150,7 @@
             <option value="spray">Spray</option>
             <option value="suppository">Suppository</option>
           </select>
+          <p class="form__validation-message form__dosage-form-message"></p>
         </div>
 
         <div class="form-group">
@@ -155,6 +161,7 @@
             id="price"
             class="form__price-input"
           />
+          <p class="form__validation-message form__price-message"></p>
         </div>
 
         <div class="form-group">
@@ -165,7 +172,9 @@
             id="date-recieved"
             class="form__date-recieved-input"
           />
+          <p class="form__validation-message form__date-recieved-message"></p>
         </div>
+
         <!-- BUTTONS -->
         <button type="submit" class="submit-button">Submit</button>
         <button class="cancel-button">Cancel</button>
