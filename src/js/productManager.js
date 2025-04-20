@@ -37,6 +37,16 @@ class ProductManager {
   static getProduct() {
     return this.productsCollection;
   }
+
+  // DELETE
+  static deleteProduct(id) {
+    ProductManager.productsCollection =
+      ProductManager.productsCollection.filter((product) => {
+        return product.id !== id;
+      });
+    ProductManager.storeProducts(ProductManager.productsCollection);
+    UserInterface.viewProductList(); // check this if it is viewProductList or need to add renderProduct()
+  }
 }
 
 export default ProductManager;

@@ -1,4 +1,5 @@
 import MainValidation from "./mainValidation";
+import ProductManager from "./productManager";
 import ValidationFields from "./validationFields";
 
 class UserInterface {
@@ -61,7 +62,14 @@ class UserInterface {
       toolsContainer.classList.add("tools-container");
       editButton.classList.add("edit-button");
       deleteButton.classList.add("delete-button");
+
+      // ADDING EVENT LISTENER TO DELETE BUTTON
+      deleteButton.addEventListener("click", () => {
+        UserInterface.displayDeleteModal(product.id, product.name);
+      });
     });
+
+    // ADDING EVENT LISTENER TO EDIT BUTTON
   }
 
   // OPEN FORM BUTTON MODAL
@@ -77,6 +85,35 @@ class UserInterface {
       formModal.classList.remove("display-form-modal");
       form.reset();
       MainValidation.resetForm(ValidationFields.fieldsToValidate);
+      UserInterface.closeDeleteModal();
+    });
+  }
+
+  //  DELETE
+  static displayDeleteModal(productId, productName) {
+    const deleteModal = document.querySelector(".delete-modal");
+    const deleteMessage = document.querySelector(".delete-modal__text");
+    const confirmDeleteButton = document.querySelector(
+      ".delete-modal__confirm-button"
+    );
+
+    deleteMessage.textContent = `Are you sure you want to delete: ${productName}`;
+    deleteModal.classList.add("display-modal");
+
+    confirmDeleteButton.addEventListener("click", () => {
+      ProductManager.deleteProduct(productId);
+      deleteModal.classList.remove("display-modal");
+    });
+  }
+
+  static closeDeleteModal() {
+    const deleteModal = document.querySelector(".delete-modal");
+    const cancelDeleteButton = document.querySelector(
+      ".delete-modal__cancel-button"
+    );
+
+    cancelDeleteButton.addEventListener("click", () => {
+      deleteModal.classList.remove("display-modal");
     });
   }
 }

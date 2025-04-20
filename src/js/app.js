@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   UserInterface.openAddModal(openAddModalButton, formModal);
   UserInterface.closeCancelModal(cancelCloseModalButton, formModal, form);
   UserInterface.viewProductList();
+  UserInterface.closeDeleteModal();
 });
 
 form.addEventListener("submit", (e) => {
