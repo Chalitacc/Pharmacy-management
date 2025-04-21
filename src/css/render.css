@@ -41,6 +41,12 @@
   background-color: #fffacd; /* light yellow */
 }
 
+.products-container:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f9f9f9;
+}
+
 .tools-container {
   display: flex;
   gap: var(--spacing-medium);

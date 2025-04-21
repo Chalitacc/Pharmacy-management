@@ -1,6 +1,7 @@
 import UserInterface from "./ui";
 import ProductManager from "./productManager";
 import ValidationFields from "./validationFields";
+import MainValidation from "./mainValidation";
 // SELECTING ELEMENTS
 const formModal = document.querySelector(".form-modal");
 const openAddModalButton = document.querySelector(".add-button");
@@ -34,19 +35,39 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  ProductManager.addProduct(
-    name.value.trim(),
-    manufacturer.value.trim(),
-    expriationDate.value,
-    quantity.value.trim(),
-    price.value.trim(),
-    categoryDropDown.value,
-    dosageForm.value,
-    dateRecieved.value
-  );
+  if (!UserInterface.currentEditId) {
+    ProductManager.addProduct(
+      name.value.trim(),
+      manufacturer.value.trim(),
+      expriationDate.value,
+      quantity.value.trim(),
+      price.value.trim(),
+      categoryDropDown.value,
+      dosageForm.value,
+      dateRecieved.value
+    );
+  } else {
+    ProductManager.editProduct(
+      UserInterface.currentEditId,
+      name.value.trim(),
+      manufacturer.value.trim(),
+      expriationDate.value,
+      quantity.value.trim(),
+      price.value.trim(),
+      categoryDropDown.value,
+      dosageForm.value,
+      dateRecieved.value
+    );
+    UserInterface.currentEditId = null;
+    submitButton.textContent = "Add";
+    formModal.classList.remove("display-form-modal");
+  }
+
   console.log("Product added");
   console.log(ProductManager.getProduct());
 
   UserInterface.viewProductList();
   form.reset();
+  formModal.classList.remove("display-form-modal");
+  MainValidation.resetForm(ValidationFields.fieldsToValidate);
 });

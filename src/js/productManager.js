@@ -45,7 +45,40 @@ class ProductManager {
         return product.id !== id;
       });
     ProductManager.storeProducts(ProductManager.productsCollection);
-    UserInterface.viewProductList(); // check this if it is viewProductList or need to add renderProduct()
+  }
+
+  // EDIT PRODUCT
+  static editProduct(
+    id,
+    name,
+    manufacturer,
+    expirationDate,
+    quantity,
+    price,
+    category,
+    dosageForm,
+    dateRecieved
+  ) {
+    const productsCollection = JSON.parse(localStorage.getItem("products"));
+
+    const productIndex = productsCollection.findIndex(
+      (product) => product.id === id
+    );
+
+    if (productIndex !== -1) {
+      ProductManager.productsCollection[productIndex] = {
+        id,
+        name,
+        manufacturer,
+        expirationDate,
+        quantity,
+        price,
+        category,
+        dosageForm,
+        dateRecieved,
+      };
+      ProductManager.storeProducts(ProductManager.productsCollection);
+    }
   }
 }
 

@@ -4,6 +4,7 @@ import ValidationFields from "./validationFields";
 
 class UserInterface {
   // RENDER
+  static currentEditId = null;
   static viewProductList() {
     const listContainer = document.querySelector(
       ".product-list__list-container"
@@ -67,9 +68,14 @@ class UserInterface {
       deleteButton.addEventListener("click", () => {
         UserInterface.displayDeleteModal(product.id, product.name);
       });
-    });
 
-    // ADDING EVENT LISTENER TO EDIT BUTTON
+      // EDiT BUTTON
+
+      editButton.addEventListener("click", () => {
+        UserInterface.displayEditForm();
+        UserInterface.populateEditProduct(product.id);
+      });
+    });
   }
 
   // OPEN FORM BUTTON MODAL
@@ -86,6 +92,11 @@ class UserInterface {
       form.reset();
       MainValidation.resetForm(ValidationFields.fieldsToValidate);
       UserInterface.closeDeleteModal();
+
+      // reset edit state for cancel button
+      UserInterface.currentEditId = null;
+      const submitButton = document.querySelector(".submit-button");
+      submitButton.textContent = "Add";
     });
   }
 
@@ -103,6 +114,7 @@ class UserInterface {
     confirmDeleteButton.addEventListener("click", () => {
       ProductManager.deleteProduct(productId);
       deleteModal.classList.remove("display-modal");
+      UserInterface.viewProductList();
     });
   }
 
@@ -115,6 +127,55 @@ class UserInterface {
     cancelDeleteButton.addEventListener("click", () => {
       deleteModal.classList.remove("display-modal");
     });
+  }
+
+  // Populate edit form
+
+  static displayEditForm() {
+    const formModal = document.querySelector(".form-modal");
+    const formSubmitButton = document.querySelector(".submit-button");
+    formModal.classList.add("display-form-modal");
+    formSubmitButton.textContent = "Confirm Editt";
+  }
+
+  static populateEditProduct(id) {
+    const productList = JSON.parse(localStorage.getItem("products"));
+
+    // selecting the inputs
+    const productNameInput = document.querySelector(".form__name-input");
+    const productManufacturer = document.querySelector(
+      ".form__manufacture-input"
+    );
+    const productExpirationDateInput = document.querySelector(
+      ".form__expiration-date-input"
+    );
+    const productCategory = document.querySelector(".form__category-selector"); // selector
+    const productQuantityInput = document.querySelector(
+      ".form__quantity-input"
+    );
+    const productDosageForm = document.querySelector(
+      ".form__dosage-form-selector"
+    ); // selector
+
+    const productPrice = document.querySelector(".form__price-input");
+    const ProductDateRecieved = document.querySelector(
+      ".form__date-recieved-input"
+    );
+
+    const productToEdit = ProductManager.productsCollection.find(
+      (product) => product.id === id
+    );
+
+    productNameInput.value = productToEdit.name;
+    productManufacturer.value = productToEdit.manufacturer;
+    productExpirationDateInput.value = productToEdit.expirationDate;
+    productCategory.value = productToEdit.category;
+    productQuantityInput.value = productToEdit.quantity;
+    productDosageForm.value = productToEdit.dosageForm;
+    productPrice.value = productToEdit.price;
+    ProductDateRecieved.value = productToEdit.dateRecieved;
+
+    UserInterface.currentEditId = id;
   }
 }
 
