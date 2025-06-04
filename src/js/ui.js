@@ -96,7 +96,7 @@ class UserInterface {
       // reset edit state for cancel button
       UserInterface.currentEditId = null;
       const submitButton = document.querySelector(".submit-button");
-      submitButton.textContent = "Add";
+      submitButton.textContent = "Submit";
     });
   }
 
