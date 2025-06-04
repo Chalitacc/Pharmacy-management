@@ -30,6 +30,6 @@ This project was created as part of an assignement to practice Object-oriented p
 ## 🛜 Live demo and Source code
 
 😺 Git hub:
-https://github.com/Chalitacc/expense-tracker
+https://github.com/Chalitacc/Pharmacy-management/tree/main
 💻 Netlify
-https://precious-brioche-c4ca7f.netlify.app/
+https://calm-hamster-0a7e1a.netlify.app/
